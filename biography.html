@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Journey of Ashoka | Biography</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #d97706;
+            --background: #fdfbf7;
+            --text: #334155;
+        }
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+        }
+        .font-cinzel {
+            font-family: 'Cinzel', serif;
+        }
+        .glass-nav {
+            background: rgba(253, 251, 247, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .chakra-spin {
+            animation: spin 20s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .slide-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .slide-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .slide-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .slide-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(30, 58, 138, 0.2);
+        }
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #1e3a8a, #d97706, #1e3a8a);
+        }
+        @media (max-width: 768px) {
+            .timeline-line {
+                left: 20px;
+            }
+        }
+        .war-section {
+            background: linear-gradient(135deg, #1f2937 0%, #374151 50%, #4b5563 100%);
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Navbar -->
+    <nav class="glass-nav fixed top-0 left-0 right-0 z-50 border-b border-amber-200/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <div class="w-10 h-10 md:w-12 md:h-12 bg-[#1e3a8a] rounded-full flex items-center justify-center">
+                        <i class="fas fa-dharmachakra text-white text-lg md:text-xl chakra-spin"></i>
+                    </div>
+                    <span class="font-cinzel font-bold text-lg md:text-xl text-[#1e3a8a]">Ashoka</span>
+                </a>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="font-cinzel text-[#334155] hover:text-[#1e3a8a] transition-colors">Home</a>
+                    <a href="biography.html" class="font-cinzel text-[#1e3a8a] font-semibold border-b-2 border-[#d97706]">The Journey</a>
+                    <a href="legacy.html" class="font-cinzel text-[#334155] hover:text-[#1e3a8a] transition-colors">Legacy</a>
+                    <a href="legacy.html#contact" class="font-cinzel text-[#334155] hover:text-[#1e3a8a] transition-colors">Contact</a>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden text-[#1e3a8a] text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-[#fdfbf7] border-t border-amber-200/50">
+            <div class="px-4 py-4 space-y-3">
+                <a href="index.html" class="block font-cinzel text-[#334155] hover:text-[#1e3a8a] py-2">Home</a>
+                <a href="biography.html" class="block font-cinzel text-[#1e3a8a] font-semibold py-2">The Journey</a>
+                <a href="legacy.html" class="block font-cinzel text-[#334155] hover:text-[#1e3a8a] py-2">Legacy</a>
+                <a href="legacy.html#contact" class="block font-cinzel text-[#334155] hover:text-[#1e3a8a] py-2">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-20 md:pt-24 pb-20 bg-gradient-to-br from-[#1e3a8a] via-[#1e3a8a]/90 to-[#d97706]/80 overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <img src="https://images.unsplash.com/photo-1548013146-72479768bada?w=1600&h=900&fit=crop" 
+                 alt="Ancient India" 
+                 class="w-full h-full object-cover">
+        </div>
+        <div class="max-w-7xl mx-auto px-4 py-20 relative z-10 text-center">
+            <span class="font-cinzel text-amber-300 tracking-widest uppercase text-sm">304 BCE - 232 BCE</span>
+            <h1 class="font-cinzel text-4xl md:text-6xl font-bold text-white mt-4 mb-6">
+                The Journey of Ashoka
+            </h1>
+            <p class="text-xl text-white/80 max-w-3xl mx-auto">
+                From a fierce warrior prince to the greatest emperor of ancient India—a transformation that echoes through millennia
+            </p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0">
+            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 120L1440 120L1440 0C1440 0 1140 80 720 80C300 80 0 0 0 0L0 120Z" fill="#fdfbf7"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="py-20 px-4" id="early-life">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-20 fade-in">
+                <span class="font-cinzel text-[#d97706] tracking-widest uppercase text-sm">Life & Times</span>
+                <h2 class="font-cinzel text-3xl md:text-5xl font-bold text-[#1e3a8a] mt-4">
+                    The Timeline
+                </h2>
+                <div class="w-24 h-1 bg-[#d97706] mx-auto mt-6"></div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="relative">
+                <div class="timeline-line hidden md:block"></div>
+
+                <!-- Early Life -->
+                <div class="relative mb-20">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-16 md:text-right slide-left">
+                            <div class="bg-white rounded-2xl shadow-xl p-8 hover-lift border-l-4 border-[#1e3a8a]">
+                                <span class="inline-block bg-[#1e3a8a]/10 text-[#1e3a8a] font-cinzel text-sm px-4 py-1 rounded-full mb-4">
+                                    304 BCE - 273 BCE
+                                </span>
+                                <h3 class="font-cinzel text-2xl font-bold text-[#1e3a8a] mb-4">
+                                    <i class="fas fa-baby mr-2 text-[#d97706]"></i>
+                                    Early Life & Rise to Power
+                                </h3>
+                                <p class="text-[#334155] leading-relaxed mb-4">
+                                    Born as Ashoka Vardhana to Emperor Bindusara and Queen Dharma (or Subhadrangi), young Ashoka showed exceptional military skills from an early age. Despite not being the crown prince, his abilities made him stand out among his brothers.
+                                </p>
+                                <p class="text-[#334155] leading-relaxed">
+                                    He served as the Viceroy of Ujjain and Taxila, where he gained valuable administrative experience and quelled rebellions, proving his worth as both a warrior and a leader.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="hidden md:flex w-16 h-16 bg-[#1e3a8a] rounded-full items-center justify-center z-10 my-8 md:my-0 shadow-lg">
+                            <i class="fas fa-crown text-white text-xl"></i>
+                        </div>
+                        
+                        <div class="md:w-1/2 md:pl-16 mt-8 md:mt-0 slide-right">
+                            <img src="https://images.unsplash.com/photo-1609766856923-7e0a0c06087d?w=600&h=400&fit=crop" 
+                                 alt="Ancient Palace" 
+                                 class="rounded-2xl shadow-xl w-full hover-lift">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coronation -->
+                <div class="relative mb-20">
+                    <div class="flex flex-col md:flex-row-reverse items-center">
+                        <div class="md:w-1/2 md:pl-16 md:text-left slide-right">
+                            <div class="bg-white rounded-2xl shadow-xl p-8 hover-lift border-r-4 border-[#d97706]">
+                                <span class="inline-block bg-[#d97706]/10 text-[#d97706] font-cinzel text-sm px-4 py-1 rounded-full mb-4">
+                                    273 BCE - 268 BCE
+                                </span>
+                                <h3 class="font-cinzel text-2xl font-bold text-[#1e3a8a] mb-4">
+                                    <i class="fas fa-chess-king mr-2 text-[#d97706]"></i>
+                                    The Succession & Coronation
+                                </h3>
+                                <p class="text-[#334155] leading-relaxed mb-4">
+                                    After Emperor Bindusara's death, a fierce struggle for succession ensued. According to various sources, Ashoka emerged victorious, though Buddhist texts suggest he had to overcome significant opposition from his brothers.
+                                </p>
+                                <p class="text-[#334155] leading-relaxed">
+                                    He was crowned as "Devanampriya Priyadarshi" (Beloved of the Gods, He Who Looks Upon with Affection) in 268 BCE, beginning a reign that would transform the subcontinent.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="hidden md:flex w-16 h-16 bg-[#d97706] rounded-full items-center justify-center z-10 my-8 md:my-0 shadow-lg">
+                            <i class="fas fa-star text-white text-xl"></i>
+                        </div>
+                        
+                        <div class="md:w-1/2 md:pr-16 mt-8 md:mt-0 slide-left">
+                            <img src="https://images.unsplash.com/photo-1566552881560-0be862a7c445?w=600&h=400&fit=crop" 
+                                 alt="Royal Throne" 
+                                 class="rounded-2xl shadow-xl w-full hover-lift">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kalinga War Section - Dark Theme -->
+    <section class="war-section py-24 px-4 relative overflow-hidden" id="kalinga">
+        <div class="absolute inset-0 opacity-20">
+            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1600&h=900&fit=crop" 
+                 alt="Battle Scene" 
+                 class="w-full h-full object-cover">
+        </div>
+        
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="text-center mb-16 fade-in">
+                <span class="font-cinzel text-red-400 tracking-widest uppercase text-sm">The Turning Point</span>
+                <h2 class="font-cinzel text-3xl md:text-5xl font-bold text-white mt-4">
+                    The Kalinga War
+                </h2>
+                <p class="text-gray-300 mt-4 text-lg">261 BCE - The conquest that changed everything</p>
+                <div class="w-24 h-1 bg-red-500 mx-auto mt-6"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <div class="bg-black/40 backdrop-blur-sm rounded-2xl p-8 border border-red-500/30">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-skull text-white text-xl"></i>
+                            </div>
+                            <h3 class="font-cinzel text-2xl font-bold text-white">The Devastating Conquest</h3>
+                        </div>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            Kalinga (modern-day Odisha) was a prosperous and fiercely independent kingdom. Ashoka launched a massive military campaign to conquer this strategic territory.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed mb-6">
+                            The battle was catastrophic. According to Ashoka's own Rock Edict XIII, the war resulted in approximately 100,000 deaths in battle, 150,000 deportations, and many more who died from wounds and famine.
+                        </p>
+                        <div class="grid grid-cols-3 gap-4">
+                            <div class="text-center p-4 bg-red-900/40 rounded-xl">
+                                <div class="text-2xl font-cinzel font-bold text-red-400">100K</div>
+                                <div class="text-xs text-gray-400 mt-1">Killed</div>
+                            </div>
+                            <div class="text-center p-4 bg-red-900/40 rounded-xl">
+                                <div class="text-2xl font-cinzel font-bold text-red-400">150K</div>
+                                <div class="text-xs text-gray-400 mt-1">Deported</div>
+                            </div>
+                            <div class="text-center p-4 bg-red-900/40 rounded-xl">
+                                <div class="text-2xl font-cinzel font-bold text-red-400">∞</div>
+                                <div class="text-xs text-gray-400 mt-1">Suffering</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fade-in">
+                    <div class="bg-black/40 backdrop-blur-sm rounded-2xl p-8 border border-amber-500/30">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-heart-broken text-white text-xl"></i>
+                            </div>
+                            <h3 class="font-cinzel text-2xl font-bold text-white">The Emperor's Remorse</h3>
+                        </div>
+                        <blockquote class="text-amber-200 italic text-lg leading-relaxed mb-6 border-l-4 border-amber-500 pl-4">
+                            "What have I done? If this is victory, what is defeat? Is this justice or injustice? Is it valor or wickedness?"
+                        </blockquote>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            Walking through the battlefield strewn with corpses, the stench of death, and the cries of the wounded, Ashoka experienced a profound transformation.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+                            The sight of the destruction he had caused filled him with such remorse that he renounced violence forever and embraced Buddhism, dedicating the rest of his life to Dhamma.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transformation Section -->
+    <section class="py-24 px-4 bg-gradient-to-b from-[#fdfbf7] to-amber-50" id="transformation">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <span class="font-cinzel text-[#d97706] tracking-widest uppercase text-sm">Embracing Buddhism</span>
+                <h2 class="font-cinzel text-3xl md:text-5xl font-bold text-[#1e3a8a] mt-4">
+                    The Great Transformation
+                </h2>
+                <div class="w-24 h-1 bg-[#d97706] mx-auto mt-6"></div>
+            </div>
+
+            <div class="relative">
+                <div class="timeline-line hidden md:block"></div>
+
+                <div class="relative mb-20">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-16 md:text-right slide-left">
+                            <img src="https://images.unsplash.com/photo-1609619385002-f40f1df9b7eb?w=600&h=400&fit=crop" 
+                                 alt="Buddhist Temple" 
+                                 class="rounded-2xl shadow-xl w-full hover-lift">
+                        </div>
+                        
+                        <div class="hidden md:flex w-16 h-16 bg-amber-500 rounded-full items-center justify-center z-10 my-8 md:my-0 shadow-lg">
+                            <i class="fas fa-dharmachakra text-white text-xl"></i>
+                        </div>
+                        
+                        <div class="md:w-1/2 md:pl-16 mt-8 md:mt-0 slide-right">
+                            <div class="bg-white rounded-2xl shadow-xl p-8 hover-lift border-l-4 border-amber-500">
+                                <span class="inline-block bg-amber-500/10 text-amber-600 font-cinzel text-sm px-4 py-1 rounded-full mb-4">
+                                    260 BCE Onwards
+                                </span>
+                                <h3 class="font-cinzel text-2xl font-bold text-[#1e3a8a] mb-4">
+                                    <i class="fas fa-om mr-2 text-[#d97706]"></i>
+                                    Conversion to Buddhism
+                                </h3>
+                                <p class="text-[#334155] leading-relaxed mb-4">
+                                    Under the guidance of Buddhist monk Upagupta (or Moggaliputta Tissa), Ashoka embraced Buddhism wholeheartedly. He became a lay follower initially and later became more devoted.
+                                </p>
+                                <p class="text-[#334155] leading-relaxed">
+                                    He undertook pilgrimages to Buddhist holy sites and began propagating the Buddha's teachings throughout his empire and beyond.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Administration Cards -->
+    <section class="py-20 px-4 bg-[#1e3a8a]">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <span class="font-cinzel text-amber-300 tracking-widest uppercase text-sm">Governance</span>
+                <h2 class="font-cinzel text-3xl md:text-5xl font-bold text-white mt-4">
+                    His Administration & Rule
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="fade-in bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover-lift border border-white/20 group">
+                    <div class="w-14 h-14 bg-[#d97706] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-gavel text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-cinzel text-xl font-semibold text-white mb-3">Judicial Reforms</h3>
+                    <p class="text-white/70 text-sm leading-relaxed">
+                        Established a system of Dharma Mahamatras (officers of righteousness) to ensure justice and moral conduct across the empire.
+                    </p>
+                </div>
+
+                <div class="fade-in bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover-lift border border-white/20 group">
+                    <div class="w-14 h-14 bg-[#d97706] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-hospital text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-cinzel text-xl font-semibold text-white mb-3">Public Welfare</h3>
+                    <p class="text-white/70 text-sm leading-relaxed">
+                        Built hospitals for humans and animals, planted medicinal herbs, constructed roads, rest houses, and wells throughout the empire.
+                    </p>
+                </div>
+
+                <div class="fade-in bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover-lift border border-white/20 group">
+                    <div class="w-14 h-14 bg-[#d97706] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-globe-asia text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-cinzel text-xl font-semibold text-white mb-3">Diplomatic Missions</h3>
+                    <p class="text-white/70 text-sm leading-relaxed">
+                        Sent Buddhist missionaries to Sri Lanka, Central Asia, Southeast Asia, and even to Greek kingdoms, spreading Dhamma globally.
+                    </p>
+                </div>
+
+                <div class="fade-in bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover-lift border border-white/20 group">
+                    <div class="w-14 h-14 bg-[#d97706] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-scroll text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-cinzel text-xl font-semibold text-white mb-3">The Edicts</h3>
+                    <p class="text-white/70 text-sm leading-relaxed">
+                        Inscribed his policies and principles on rocks and pillars throughout the empire, creating the first recorded royal proclamations in Indian history.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legacy Teaser -->
+    <section class="py-20 px-4 bg-gradient-to-r from-[#d97706] to-amber-500">
+        <div class="max-w-4xl mx-auto text-center fade-in">
+            <h2 class="font-cinzel text-3xl md:text-4xl font-bold text-white mb-6">
+                His Legacy Lives On
+            </h2>
+            <p class="text-xl text-white/90 mb-10">
+                From the Ashoka Chakra on India's flag to the Lion Capital as the national emblem—discover how Ashoka's legacy shapes modern India.
+            </p>
+            <a href="legacy.html" 
+               class="inline-flex items-center justify-center space-x-2 bg-white text-[#1e3a8a] font-cinzel font-semibold px-8 py-4 rounded-full hover:bg-[#fdfbf7] transition-all duration-300 hover:scale-105 shadow-lg">
+                <span>Explore His Legacy</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#1e3a8a] text-white py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-12">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                            <i class="fas fa-dharmachakra text-[#1e3a8a] text-xl"></i>
+                        </div>
+                        <span class="font-cinzel font-bold text-2xl">Samrat Ashoka</span>
+                    </div>
+                    <p class="text-white/70 leading-relaxed">
+                        A tribute to one of history's greatest emperors, whose message of peace, tolerance, and righteousness continues to inspire the world today.
+                    </p>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#d97706] transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#d97706] transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#d97706] transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#d97706] transition-colors">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-cinzel font-semibold text-lg mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-white/70 hover:text-[#d97706] transition-colors">Home</a></li>
+                        <li><a href="biography.html" class="text-white/70 hover:text-[#d97706] transition-colors">The Journey</a></li>
+                        <li><a href="legacy.html" class="text-white/70 hover:text-[#d97706] transition-colors">Legacy & Edicts</a></li>
+                        <li><a href="legacy.html#contact" class="text-white/70 hover:text-[#d97706] transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-cinzel font-semibold text-lg mb-6">Explore</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#early-life" class="text-white/70 hover:text-[#d97706] transition-colors">Early Life</a></li>
+                        <li><a href="#kalinga" class="text-white/70 hover:text-[#d97706] transition-colors">Kalinga War</a></li>
+                        <li><a href="legacy.html#edicts" class="text-white/70 hover:text-[#d97706] transition-colors">Rock Edicts</a></li>
+                        <li><a href="legacy.html#symbols" class="text-white/70 hover:text-[#d97706] transition-colors">National Symbols</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-white/60 text-sm">
+                    © 2024 Samrat Ashoka Tribute. Created by <span class="text-[#d97706]">Utkarsh Maurya</span>
+                </p>
+                <p class="text-white/60 text-sm mt-2 md:mt-0">
+                    <i class="fas fa-dharmachakra text-[#d97706] mr-1"></i> Satyameva Jayate
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Scroll Animation
+        const fadeElements = document.querySelectorAll('.fade-in, .slide-left, .slide-right');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Navbar Background on Scroll
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+                                                                                                                                     </html>
