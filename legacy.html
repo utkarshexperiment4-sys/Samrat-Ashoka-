@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legacy & Edicts | Samrat Ashoka</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #d97706;
+            --background: #fdfbf7;
+            --text: #334155;
+        }
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+        }
+        .font-cinzel {
+            font-family: 'Cinzel', serif;
+        }
+        .glass-nav {
+            background: rgba(253, 251, 247, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .chakra-spin {
+            animation: spin 20s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(30, 58, 138, 0.2);
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+        }
+        .gallery-item img {
+            transition: transform 0.5s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        .gallery-item .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(30, 58, 138, 0.9) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+        .gallery-item .content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .gallery-item:hover .content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .edict-card {
+            transition: all 0.3s ease;
+        }
+        .edict-card:hover {
+            background-color: #1e3a8a;
+            color: white;
+        }
+        .edict-card:hover .edict-number {
+            background-color: #d97706;
+            color: white;
+        }
+        .edict-card:hover p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Navbar -->
+    <nav class="glass-nav fixed top-0 left-0 right-0 z-50 border-b border-amber-200/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <div class="w-10 h-10 md:w-12 md:h-12 bg-[#1e3a8a] rounded-full flex items-center justify-center">
+                        <i class="fas fa-dharmachakra text-white text-lg md:text-xl chakra-spin"></i>
+                    </div>
+                    <span class="font-cinzel font-bold text-lg md:text-xl text-[#1e3a8a]">Ashoka</span>
+                </a>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="font-cinzel text-[#334155] hover:text-[#1e3a8a] transition-colors">Home</a>
+                    <a href="biography.html" class="font-cinzel text-[#334155] hover:text-[#1e3a8a] transition-colors">The Journey</a>
+                    <a href="legacy.html" class="font-cinzel text-[#1e3a8a] font-semibold border-b-2 border-[#d97706]">Legacy</a>
+                    <a href="#contact" class="font-cinzel text-[#334155] hover:text-[#1e3a8a] transition-colors">Contact</a>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden text-[#1e3a8a] text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-[#fdfbf7] border-t border-amber-200/50">
+            <div class="px-4 py-4 space-y-3">
+                <a href="index.html" class="block font-cinzel text-[#334155] hover:text-[#1e3a8a] py-2">Home</a>
+                <a href="biography.html" class="block font-cinzel text-[#334155] hover:text-[#1e3a8a] py-2">The Journey</a>
+                <a href="legacy.html" class="block font-cinzel text-[#1e3a8a] font-semibold py-2">Legacy</a>
+                <a href="#contact" class="block font-cinzel text-[#334155] hover:text-[#1e3a8a] py-2">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-20 md:pt-24 pb-20 bg-gradient-to-br from-[#1e3a8a] via-[#1e3a8a]/90 to-[#d97706]/80 overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?w=1600&h=900&fit=crop" 
+                 alt="Ashoka Pillar" 
+                 class="w-full h-full object-cover">
+        </div>
+        <div class="max-w-7xl mx-auto px-4 py-20 relative z-10 text-center">
+            <span class="font-cinzel text-amber-300 tracking-widest uppercase text-sm">Enduring Influence</span>
+            <h1 class="font-cinzel text-4xl md:text-6xl font-bold text-white mt-4 mb-6">
+                Legacy & Edicts
+            </h1>
+            <p class="text-xl text-white/80 max-w-3xl mx-auto">
+                The pillars, stupas, and inscriptions that carry Ashoka's message across millennia
+            </p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0">
+            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 120L1440 120L1440 0C1440 0 1140 80 720 80C300 80 0 0 0 0L0 120Z" fill="#fdfbf7"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-20 px-4" id="gallery">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <span class="font-cinzel text-[#d97706] tracking-widest uppercase text-sm">Monuments</span>
+                <h2 class="font-cinzel text-3xl md:text-5xl font-bold text-[#1e3a8a] mt-4">
+                    Architectural Marvels
+                </h2>
+                <div class="w-24 h-1 bg-[#d97706] mx-auto mt-6"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Lion Capital -->
+                <div class="fade-in gallery-item rounded-2xl overflow-hidden shadow-xl h-80">
+                    <img src="https://images.unsplash.com/photo-1532664189809-02133fee698d?w=600&h=400&fit=crop" 
+                         alt="Lion Capital of Ashoka" 
+                         class="w-full h-full object-cover">
+                    <div class="overlay"></div>
+                    <div class="content">
+                        <h3 class="font-cinzel text-xl font-bold text-white">Lion Capital of Ashoka</h3>
+                        <p class="text-white/80 text-sm mt-2">The national emblem of India, originally placed atop the Ashoka Pillar at Sarnath.</p>
+                    </div>
+                </div>
+
+                <!-- Sanchi Stupa -->
+                <div class="fade-in gallery-item rounded-2xl overflow-hidden shadow-xl h-80">
+                    <img src="https://images.unsplash.com/photo-1590766940554-634855440566?w=600&h=400&fit=crop" 
+                         alt="Sanchi Stupa" 
+                         class="w-full h-full object-cover">
+                    <div class="overlay"></div>
+                    <div class="content">
+                        <h3 class="font-cinzel text-xl font-bold text-white">The Great Stupa at Sanchi</h3>
+                        <p class="text-white/80 text-sm mt-2">Built by Ashoka to enshrine relics of the Buddha, now a UNESCO World Heritage Site.</p>
+                    </div>
+                </div>
+
+                <!-- Ashoka Pillar -->
+                <div class="fade-in gallery-item rounded-2xl overflow-hidden shadow-xl h-80">
+                    <img src="https://images.unsplash.com/photo-1587135941948-670b381f08ce?w=600&h=400&fit=crop" 
+                         alt="Ashoka Pillar" 
+                         class="w-full h-full object-cover">
+                    <div class="overlay"></div>
+                    <div class="content">
+                        <h3 class="font-cinzel text-xl font-bold text-white">The Pillars of Ashoka</h3>
+                        <p class="text-white/80 text-sm mt-2">Monolithic columns bearing edicts, spread across the Indian subcontinent.</p>
+                    </div>
+                </div>
+
+                <!-- Dhauli Shanti Stupa -->
+                <div class="fade-in gallery-item rounded-2xl overflow-hidden shadow-xl h-80">
+                    <img src="https://images.unsplash.com/photo-1609619385002-f40f1df9b7eb?w=600&h=400&fit=crop" 
+                         alt="Dhauli Shanti Stupa" 
+                         class="w-full h-full object-cover">
+                    <div class="overlay"></div>
+                    <div class="content">
+                        <h3 class="font-cinzel text-xl font-bold text-white">Dhauli Shanti Stupa</h3>
+                        <p class="text-white/80 text-sm mt-2">The peace pagoda at Dhauli, where Ashoka's transformation began after the Kalinga War.</p>
+                    </div>
+                </div>
+
+                <!-- Rock Edicts -->
+                <div class="fade-in gallery-item rounded-2xl overflow-hidden shadow-xl h-80">
+                    <img src="https://images.unsplash.com/photo-1548013146-72479768bada?w=600&h=400&fit=crop" 
+                         alt="Rock Edicts" 
+                         class="w-full h-full object-cover">
+                    <div class="overlay"></div>
+                    <div class="content">
+                        <h3 class="font-cinzel text-xl font-bold text-white">Rock Edicts</h3>
+                        <p class="text-white/80 text-sm mt-2">Inscriptions carved on rocks and boulders found throughout the empire.</p>
+                    </div>
+                </div>
+
+                <!-- Bodh Gaya -->
+                <div class="fade-in gallery-item rounded-2xl overflow-hidden shadow-xl h-80">
+                    <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&h=400&fit=crop" 
+                         alt="Mahabodhi Temple" 
+                         class="w-full h-full object-cover">
+                    <div class="overlay"></div>
+                    <div class="content">
+                        <h3 class="font-cinzel text-xl font-bold text-white">Mahabodhi Temple</h3>
+                        <p class="text-white/80 text-sm mt-2">Originally built by Ashoka at the site of Buddha's enlightenment in Bodh Gaya.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Edicts Section -->
+    <section class="py-20 px-4 bg-gradient-to-b from-[#fdfbf7] to-amber-50" id="edicts">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <span class="font-cinzel text-[#d97706] tracking-widest uppercase text-sm">The Teachings</span>
+                <h2 class="font-cinzel text-3xl md:text-5xl font-bold text-[#1e3a8a] mt-4">
+                    The 14 Rock Edicts
+                </h2>
+                <p class="text-[#334155] mt-6 max-w-2xl mx-auto">
+                    Inscribed on rocks throughout the empire, these edicts proclaimed Ashoka's policies and moral principles to his subjects
+                </p>
+                <div class="w-24 h-1 bg-[#d97706] mx-auto mt-6"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                <div class="fade-in edict-card bg-white rounded-xl p-6 shadow-lg cursor-pointer">
+                    <div class="edict-number w-10 h-10 bg-[#1e3a8a]/10 text-[#1e3a8a] rounded-full flex items-center justify-center font-cinzel font-bold mb-4">I</div>
+                    <h4 class="font-cinzel font-semibold text-[#1e3a8a] mb-2">Prohibition of Animal Sacrifice</h4>
+                    <p class="text-sm text-[#334155]">Banned animal slaughter and promoted vegetarianism in royal festivals.</p>
+                </div>
+
+                <div class="fade-in edict-card bg-white rounded-xl p-6 shadow-lg cursor-pointer">
+                    <div class="edict-number w-10 h-10 bg-[#1e3a8a]/10 text-[#1e3a8a] rounded-full flex items-center justify-center font-cinzel font-bold mb-4">II</div>
+                    <h4 class="font-cinzel font-semibold text-[#1e3a8a] mb-2">Social Welfare</h4>
+                    <p class="text-sm text-[#334155]">Established medical facilities for humans and animals throughout the empire.</p>
+                </div>
+
+                <div class="fade-in edict-card bg-white rounded-xl p-6 shadow-lg cursor-pointer">
+                    <div class="edict-number w-10 h-10 bg-[#1e3a8a]/10 text-[#1e3a8a] rounded-full flex items-center justify-center font-cinzel font-bold mb-4">III</div>
+                    <h4 class="font-cinzel font-semibold text-[#1e3a8a] mb-2">Respect for Elders</h4>
+                    <p class="text-sm text-[#334155]">Promoted respect for parents, teachers, and all elders in society.</p>
+                </div>
+
+                <div class="fade-in edict-card bg-white rounded-xl p-6 shadow-lg cursor-pointer">
+                    <div class="edict-number w-10 h-10 bg-[#1e3a8a]/10 text-[#1e3a8a] rounded-full flex items-center justify-center font-cinzel font-bold mb-4">IV</div>
+                    <h4 class="font-cinzel font-semibold text-[#1e3a8a] mb-2">Spread of Dhamma</h4>
+                    <p class="text-sm text-[#334155]">Proclaimed the spread of righteousness over warfare as the true conquest.</p>
+                </div>
+
+                <div class="fade-in edict-card bg-white rounded-xl p-6 shadow-lg cursor-pointer">
+                    <div class="edict-number w-10 h-10 bg-[#1e3a8a]/10 text-[#1e3a8a] rounded-full flex items-center justify-center font-cinzel font-bold mb-4">V</div>
+                    <h4 class="font-cinzel font-semibold text-[#1e3a8a] mb-2">Officers of Dhamma</h4>
+                    <p class="text-sm text-[#334155]">Appointed Dharma Mahamatras to promote moral welfare among all communities.</p>
+                </div>
+
+                <div class="fade-in edict-card bg-white rounded-xl p-6 shadow-lg cursor-pointer">
+                    <div class="edict-number w-10 h-10 bg-[#1e3a8a]/10 text-[#1e3a8a] rounded-full flex items-center justify-center font-cinzel font-bold mb-4">VI</div>
+                    <h4 class="font-cinzel font-semibold text-[#1e3a8a] mb-2">Welfare of All</h4>
+                    <p class="text-sm text-[#334155]">Declared duty to work for the welfare of all people at all times.</p>
+                </div>
+
+                <div class="fade-in edict-card bg-white rounded-xl p-6 shadow-lg cursor-pointer">
+                    <div class="edict-number w-10 h-10 bg-[#1e3a8a]/10 text-[#1e3a8a] rounded-full flex items-center justify-center font-cinzel font-bold mb-4">VII</div>
+                    <h4 class="font-cinzel font-semibold text-[#1e3a8a] mb-2">Religious Tolerance</h4>
+                    <p class="text-sm text-[#334155]">Promoted tolerance and respect for all religious traditions.</p>
+                </div>
+
+                <div class="fade-in edict-card bg-white rounded-xl p-6 shadow-lg cursor-pointer">
+                    <div class="edict-number w-10 h-10 bg-[#1e3a8a]/10 text-[#1e3a8a] rounded-full flex items-center justify-center font-cinzel font-bold mb-4">VIII</div>
+                    <h4 class="font-cinzel font-semibold text-[#1e3a8a] mb-2">Dhamma Tours</h4>
+                    <p class="text-sm text-[#334155]">Replaced pleasure tours with Dhamma yatras to holy sites and teaching tours.</p>
+                </div>
+
+                <div class="fade-in edict-card bg-white rounded-xl p-6 shadow-lg cursor-pointer">
+                    <div class="edict-number w-10 h-10 bg-[#1e3a8a]/10 text-[#1e3a8a] rounded-full flex items-center justify-center font-cinzel font-bold mb-4">IX</div>
+                    <h4 class="font-cinzel font-semibold text-[#1e3a8a] mb-2">True Ceremonies</h4>
+                    <p class="text-sm text-[#334155]">Emphasized that moral conduct is the true ceremony, not rituals alone.</p>
+                </div>
+
+                <div class="fade-in edict-card bg-white rounded-xl p-6 shadow-lg cursor-pointer">
+                    <div class="edict-number w-10 h-10 bg-[#1e3a8a]/10 text-[#1e3a8a] rounded-full flex items-center justify-center font-cinzel font-bold mb-4">X</div>
+                    <h4 class="font-cinzel font-semibold text-[#1e3a8a] mb-2">Humility Over Glory</h4>
+                    <p class="text-sm text-[#334155]">Rejected fame and glory in favor of the practice of Dhamma.</p>
+                </div>
+
+                <div class="fade-in edict-card bg-white rounded-xl p-6 shadow-lg cursor-pointer">
+                    <div class="edict-number w-10 h-10 bg-[#1e3a8a]/10 text-[#1e3a8a] rounded-full flex items-center justify-center font-cinzel font-bold mb-4">XI</div>
+                    <h4 class="font-cinzel font-semibold text-[#1e3a8a] mb-2">Explaining Dhamma</h4>
+                    <p class="text-sm text-[#334155]">The gift of Dhamma (righteousness) is the greatest gift of all.</p>
+                </div>
+
+                <div class="fade-in edict-card bg-white rounded-xl p-6 shadow-lg cursor-pointer">
+                    <div class="edict-number w-10 h-10 bg-[#1e3a8a]/10 text-[#1e3a8a] rounded-full flex items-center justify-center font-cinzel font-bold mb-4">XII</div>
+                    <h4 class="font-cinzel font-semibold text-[#1e3a8a] mb-2">Religious Harmony</h4>
+                    <p class="text-sm text-[#334155]">Called for restraint in speech and respect for other religions.</p>
+                </div>
+
+                <div class="fade-in edict-card bg-white rounded-xl p-6 shadow-lg cursor-pointer">
+                    <div class="edict-number w-10 h-10 bg-[#d97706]/20 text-[#d97706] rounded-full flex items-center justify-center font-cinzel font-bold mb-4">XIII</div>
+                    <h4 class="font-cinzel font-semibold text-[#1e3a8a] mb-2">The Kalinga Proclamation</h4>
+                    <p class="text-sm text-[#334155]">His remorse for the Kalinga war and commitment to peaceful conquest through Dhamma.</p>
+                </div>
+
+                <div class="fade-in edict-card bg-white rounded-xl p-6 shadow-lg cursor-pointer">
+                    <div class="edict-number w-10 h-10 bg-[#1e3a8a]/10 text-[#1e3a8a] rounded-full flex items-center justify-center font-cinzel font-bold mb-4">XIV</div>
+                    <h4 class="font-cinzel font-semibold text-[#1e3a8a] mb-2">Summary of Edicts</h4>
+                    <p class="text-sm text-[#334155]">A summary of his edicts and encouragement to his people to follow Dhamma.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern India Section -->
+    <section class="py-20 px-4 bg-[#1e3a8a]" id="symbols">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <span class="font-cinzel text-amber-300 tracking-widest uppercase text-sm">Living Legacy</span>
+                <h2 class="font-cinzel text-3xl md:text-5xl font-bold text-white mt-4">
+                    Ashoka in Modern India
+                </h2>
+                <p class="text-white/70 mt-6 max-w-2xl mx-auto">
+                    The symbols of Ashoka's era continue to represent the values of the Republic of India
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                        <div class="flex items-center mb-6">
+                            <div class="w-20 h-20 bg-[#d97706] rounded-full flex items-center justify-center mr-6">
+                                <i class="fas fa-dharmachakra text-white text-4xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-cinzel text-2xl font-bold text-white">The Ashoka Chakra</h3>
+                                <p class="text-amber-300 text-sm">National Flag of India</p>
+                            </div>
+                        </div>
+                        <p class="text-white/80 leading-relaxed mb-4">
+                            The 24-spoke Dharma Chakra (Wheel of Law) from Ashoka's Lion Capital adorns the center of India's national flag. The navy blue wheel represents the eternal wheel of law and the cycle of time.
+                        </p>
+                        <p class="text-white/80 leading-relaxed">
+                            Each of the 24 spokes is said to represent virtues like love, courage, patience, righteousness, and self-sacrifice—principles that Ashoka himself championed.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="fade-in">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                        <div class="flex items-center mb-6">
+                            <div class="w-20 h-20 bg-[#d97706] rounded-full flex items-center justify-center mr-6">
+                                <i class="fas fa-shield-alt text-white text-4xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-cinzel text-2xl font-bold text-white">The State Emblem</h3>
+                                <p class="text-amber-300 text-sm">National Emblem of India</p>
+                            </div>
+                        </div>
+                        <p class="text-white/80 leading-relaxed mb-4">
+                            The Lion Capital of Ashoka from Sarnath was adopted as India's national emblem on January 26, 1950. The four lions symbolize power, courage, confidence, and pride.
+                        </p>
+                        <p class="text-white/80 leading-relaxed">
+                            Below the lions, the motto "Satyameva Jayate" (Truth Alone Triumphs) from the Mundaka Upanishad embodies India's commitment to truth and dharma—values Ashoka lived by.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Symbols -->
+            <div class="grid md:grid-cols-3 gap-8 mt-12">
+                <div class="fade-in bg-white/5 backdrop-blur-sm rounded-xl p-6 text-center border border-white/10 hover-lift">
+                    <div class="w-16 h-16 bg-amber-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-rupee-sign text-amber-400 text-2xl"></i>
+                    </div>
+                    <h4 class="font-cinzel text-lg font-semibold text-white mb-2">Indian Rupee Symbol</h4>
+                    <p class="text-white/60 text-sm">The Lion Capital appears on Indian currency, symbolizing the nation's rich heritage.</p>
+                </div>
+
+                <div class="fade-in bg-white/5 backdrop-blur-sm rounded-xl p-6 text-center border border-white/10 hover-lift">
+                    <div class="w-16 h-16 bg-amber-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-graduation-cap text-amber-400 text-2xl"></i>
+                    </div>
+                    <h4 class="font-cinzel text-lg font-semibold text-white mb-2">Educational Institutions</h4>
+                    <p class="text-white/60 text-sm">Numerous universities and awards bear Ashoka's name, including the prestigious Ashoka University.</p>
+                </div>
+
+                <div class="fade-in bg-white/5 backdrop-blur-sm rounded-xl p-6 text-center border border-white/10 hover-lift">
+                    <div class="w-16 h-16 bg-amber-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-award text-amber-400 text-2xl"></i>
+                    </div>
+                    <h4 class="font-cinzel text-lg font-semibold text-white mb-2">Ashoka Chakra Award</h4>
+                    <p class="text-white/60 text-sm">India's highest peacetime military decoration, named after the great emperor's wheel of dharma.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="py-24 px-4 relative overflow-hidden bg-gradient-to-r from-[#d97706] to-amber-500">
+        <div class="max-w-4xl mx-auto relative z-10 fade-in">
+            <div class="text-center">
+                <i class="fas fa-quote-left text-5xl text-white/30 mb-8"></i>
+                <blockquote class="font-cinzel text-2xl md:text-3xl text-white leading-relaxed italic">
+                    "Whoever praises his own religion, due to excessive devotion, and condemns others with the thought 'Let me glorify my own religion,' only harms his own religion."
+                </blockquote>
+                <div class="mt-8 flex items-center justify-center space-x-4">
+                    <div class="w-12 h-px bg-white/50"></div>
+                    <span class="font-cinzel text-white font-semibold tracking-wider">ROCK EDICT XII</span>
+                    <div class="w-12 h-px bg-white/50"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-20 px-4" id="contact">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <span class="font-cinzel text-[#d97706] tracking-widest uppercase text-sm">Get In Touch</span>
+                <h2 class="font-cinzel text-3xl md:text-5xl font-bold text-[#1e3a8a] mt-4">
+                    Share Your Thoughts
+                </h2>
+                <p class="text-[#334155] mt-6 max-w-2xl mx-auto">
+                    We'd love to hear your feedback, questions, or suggestions about this tribute to Samrat Ashoka
+                </p>
+                <div class="w-24 h-1 bg-[#d97706] mx-auto mt-6"></div>
+            </div>
+
+            <div class="fade-in bg-white rounded-2xl shadow-xl p-8 md:p-12">
+                <form id="contact-form" action="https://getform.io/f/aroxovdb" method="POST" class="space-y-6">
+                    <!-- Form name for identification -->
+                    <input type="hidden" name="_gotcha" style="display:none !important">
+                    <input type="hidden" name="form_name" value="Samrat Ashoka Tribute Website">
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block font-cinzel text-sm font-semibold text-[#1e3a8a] mb-2">
+                                Your Name
+                            </label>
+                            <input type="text" id="name" name="name" required
+                                   class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#1e3a8a] focus:ring-2 focus:ring-[#1e3a8a]/20 outline-none transition-all"
+                                   placeholder="Enter your name">
+                        </div>
+                        <div>
+                            <label for="email" class="block font-cinzel text-sm font-semibold text-[#1e3a8a] mb-2">
+                                Email Address
+                            </label>
+                            <input type="email" id="email" name="email" required
+                                   class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#1e3a8a] focus:ring-2 focus:ring-[#1e3a8a]/20 outline-none transition-all"
+                                   placeholder="your@email.com">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="subject" class="block font-cinzel text-sm font-semibold text-[#1e3a8a] mb-2">
+                            Subject
+                        </label>
+                        <select id="subject" name="subject" required
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#1e3a8a] focus:ring-2 focus:ring-[#1e3a8a]/20 outline-none transition-all bg-white">
+                            <option value="">Select a topic</option>
+                            <option value="feedback">General Feedback</option>
+                            <option value="question">Question about Ashoka</option>
+                            <option value="suggestion">Content Suggestion</option>
+                            <option value="collaboration">Collaboration Inquiry</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="message" class="block font-cinzel text-sm font-semibold text-[#1e3a8a] mb-2">
+                            Your Message
+                        </label>
+                        <textarea id="message" name="message" rows="5" required
+                                  class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#1e3a8a] focus:ring-2 focus:ring-[#1e3a8a]/20 outline-none transition-all resize-none"
+                                  placeholder="Share your thoughts with us..."></textarea>
+                    </div>
+
+                    <div class="flex items-center">
+                        <input type="checkbox" id="subscribe" name="subscribe" 
+                               class="w-4 h-4 text-[#1e3a8a] border-gray-300 rounded focus:ring-[#1e3a8a]">
+                        <label for="subscribe" class="ml-2 text-sm text-[#334155]">
+                            Subscribe to updates about ancient Indian history
+                        </label>
+                    </div>
+
+                    <button type="submit" 
+                            class="w-full md:w-auto px-8 py-4 bg-[#1e3a8a] hover:bg-[#1e3a8a]/90 text-white font-cinzel font-semibold rounded-xl transition-all duration-300 hover:scale-105 shadow-lg flex items-center justify-center space-x-2">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#1e3a8a] text-white py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-12">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                            <i class="fas fa-dharmachakra text-[#1e3a8a] text-xl"></i>
+                        </div>
+                        <span class="font-cinzel font-bold text-2xl">Samrat Ashoka</span>
+                    </div>
+                    <p class="text-white/70 leading-relaxed">
+                        A tribute to one of history's greatest emperors, whose message of peace, tolerance, and righteousness continues to inspire the world today.
+                    </p>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#d97706] transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#d97706] transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#d97706] transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#d97706] transition-colors">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-cinzel font-semibold text-lg mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-white/70 hover:text-[#d97706] transition-colors">Home</a></li>
+                        <li><a href="biography.html" class="text-white/70 hover:text-[#d97706] transition-colors">The Journey</a></li>
+                        <li><a href="legacy.html" class="text-white/70 hover:text-[#d97706] transition-colors">Legacy & Edicts</a></li>
+                        <li><a href="#contact" class="text-white/70 hover:text-[#d97706] transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-cinzel font-semibold text-lg mb-6">Explore</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#gallery" class="text-white/70 hover:text-[#d97706] transition-colors">Gallery</a></li>
+                        <li><a href="#edicts" class="text-white/70 hover:text-[#d97706] transition-colors">Rock Edicts</a></li>
+                        <li><a href="#symbols" class="text-white/70 hover:text-[#d97706] transition-colors">National Symbols</a></li>
+                        <li><a href="biography.html#kalinga" class="text-white/70 hover:text-[#d97706] transition-colors">Kalinga War</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-white/60 text-sm">
+                    © 2024 Samrat Ashoka Tribute. Created by <span class="text-[#d97706]">Utkarsh Maurya</span>
+                </p>
+                <p class="text-white/60 text-sm mt-2 md:mt-0">
+                    <i class="fas fa-dharmachakra text-[#d97706] mr-1"></i> Satyameva Jayate
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Scroll Animation
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Navbar Background on Scroll
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+
+        // Contact Form - Now handled by Web3Forms external service
+        // No preventDefault needed - form submits directly to Web3Forms API
+    </script>
+</body>
+  </html>
