@@ -1,0 +1,4 @@
+robots.txtUser-agent: *
+Allow: /
+
+Sitemap: https://a.samratashoka.42web.io/sitemap.xml
